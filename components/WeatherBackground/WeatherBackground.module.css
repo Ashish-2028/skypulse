@@ -1,0 +1,201 @@
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  transition: background 1s ease;
+}
+
+/* ---- Ambient gradient orbs ---- */
+.orb1, .orb2, .orb3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  animation: drift 20s ease-in-out infinite alternate;
+}
+
+.orb1 {
+  width: 500px;
+  height: 500px;
+  top: -120px;
+  right: -120px;
+  background: var(--accent);
+}
+
+.orb2 {
+  width: 450px;
+  height: 450px;
+  bottom: -100px;
+  left: -100px;
+  background: #a78bfa;
+  animation-delay: -7s;
+}
+
+.orb3 {
+  width: 350px;
+  height: 350px;
+  top: 40%;
+  left: 50%;
+  background: #f472b6;
+  animation-delay: -14s;
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(25px, -25px) scale(1.05); }
+}
+
+/* ---- Night mode (dark theme or actual night) ---- */
+.night {
+  background: linear-gradient(160deg, #020617 0%, #0b1120 25%, #0f172a 50%, #1a1040 100%);
+}
+
+.night .orb1 { background: #3b82f6; opacity: 0.08; }
+.night .orb2 { background: #7c3aed; opacity: 0.06; }
+.night .orb3 { background: #6366f1; opacity: 0.05; }
+
+/* ---- Day mode (light theme + actual daytime) ---- */
+.day {
+  background: linear-gradient(160deg, #dbeafe 0%, #bfdbfe 30%, #e0f2fe 60%, #f0f9ff 100%);
+}
+
+.day .orb1 { background: #fbbf24; opacity: 0.12; }
+.day .orb2 { background: #60a5fa; opacity: 0.08; }
+.day .orb3 { background: #a78bfa; opacity: 0.06; }
+
+/* ---- Weather condition overrides ---- */
+.clear.night { background: linear-gradient(160deg, #020617 0%, #0a0f2e 30%, #1e1b4b 70%, #2e1065 100%); }
+.clear.day { background: linear-gradient(160deg, #dbeafe 0%, #93c5fd 30%, #bae6fd 60%, #fef3c7 100%); }
+
+.cloudy.night { background: linear-gradient(160deg, #0b1120 0%, #111827 50%, #1e293b 100%); }
+.cloudy.day { background: linear-gradient(160deg, #94a3b8 0%, #b8c5d4 50%, #cbd5e1 100%); }
+
+.rainy.night { background: linear-gradient(160deg, #020617 0%, #0c1929 40%, #1e3a5f 100%); }
+.rainy.night .orb1 { background: #1d4ed8; opacity: 0.1; }
+.rainy.day { background: linear-gradient(160deg, #64748b 0%, #6b8db5 50%, #94a3b8 100%); }
+
+.snowy.night { background: linear-gradient(160deg, #0b1120 0%, #1e293b 50%, #334155 100%); }
+.snowy.day { background: linear-gradient(160deg, #e2e8f0 0%, #cbd5e1 50%, #f1f5f9 100%); }
+
+.stormy.night { background: linear-gradient(160deg, #020617 0%, #1a1040 30%, #2e1065 70%, #0c1929 100%); }
+.stormy.night .orb1 { background: #7c3aed; opacity: 0.12; }
+.stormy.day { background: linear-gradient(160deg, #334155 0%, #475569 50%, #64748b 100%); }
+
+.foggy.night { background: linear-gradient(160deg, #0b1120 0%, #1e293b 50%, #334155 100%); }
+.foggy.day { background: linear-gradient(160deg, #94a3b8 0%, #b0bec5 50%, #cbd5e1 100%); }
+
+/* ---- Rain ---- */
+.rainContainer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.raindrop {
+  position: absolute;
+  top: -30px;
+  width: 1.5px;
+  height: 22px;
+  background: linear-gradient(transparent, rgba(147, 197, 253, 0.4));
+  animation: rain linear infinite;
+}
+
+@keyframes rain {
+  to { transform: translateY(100vh); }
+}
+
+/* ---- Snow ---- */
+.snowContainer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  top: -20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: snow linear infinite;
+}
+
+@keyframes snow {
+  to { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* ---- Stars ---- */
+.stars {
+  position: absolute;
+  inset: 0;
+}
+
+.star {
+  position: absolute;
+  background: #e2e8f0;
+  border-radius: 50%;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.3); }
+}
+
+/* ---- Lightning ---- */
+.lightning {
+  position: absolute;
+  inset: 0;
+  animation: flash 5s ease-in-out infinite;
+}
+
+@keyframes flash {
+  0%, 88%, 100% { background: transparent; }
+  90% { background: rgba(255, 255, 255, 0.04); }
+  92% { background: transparent; }
+  94% { background: rgba(255, 255, 255, 0.08); }
+  96% { background: transparent; }
+}
+
+/* ---- Clouds ---- */
+.cloudsContainer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  left: -250px;
+  width: 250px;
+  height: 70px;
+  background: var(--text-primary);
+  border-radius: 70px;
+  animation: driftCloud linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 90px;
+  height: 90px;
+  top: -45px;
+  left: 40px;
+}
+
+.cloud::after {
+  width: 70px;
+  height: 70px;
+  top: -35px;
+  right: 35px;
+}
+
+@keyframes driftCloud {
+  to { transform: translateX(calc(100vw + 500px)); }
+}

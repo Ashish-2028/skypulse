@@ -1,0 +1,60 @@
+.container {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 20px 24px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 24px var(--shadow-color);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-secondary);
+  margin: 0 0 8px;
+}
+
+.arcContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.arc {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+.times {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.timeBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.timeLabel {
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.timeValue {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}

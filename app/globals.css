@@ -1,0 +1,304 @@
+/* ===========================
+   SKYPULSE - PREMIUM DESIGN SYSTEM
+   =========================== */
+
+/* Google Font: Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap');
+
+/* ---- CSS Reset ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===========================
+   DESIGN TOKENS — DARK THEME (default)
+   =========================== */
+:root {
+  /* Typography */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Background */
+  --bg-primary: #0b1120;
+  --bg-secondary: #111827;
+
+  /* Cards — Strong Glassmorphism */
+  --card-bg: rgba(17, 25, 50, 0.65);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-hover: rgba(255, 255, 255, 0.06);
+  --detail-card-bg: rgba(255, 255, 255, 0.05);
+  --dropdown-bg: rgba(17, 25, 50, 0.92);
+  --shadow-color: rgba(0, 0, 0, 0.25);
+
+  /* Text */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+
+  /* Accent */
+  --accent: #60a5fa;
+  --accent-glow: rgba(96, 165, 250, 0.2);
+
+  /* Semantic Colors */
+  --color-rain: #60a5fa;
+  --color-sun: #fbbf24;
+  --color-temp-cool: #60a5fa;
+  --color-temp-mid: #a78bfa;
+  --color-temp-warm: #f97316;
+  --temp-bar-bg: rgba(255, 255, 255, 0.08);
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* Borders */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+}
+
+/* ===========================
+   LIGHT THEME
+   =========================== */
+[data-theme='light'] {
+  --bg-primary: #e8f0fe;
+  --bg-secondary: #ffffff;
+
+  --card-bg: rgba(255, 255, 255, 0.55);
+  --card-border: rgba(0, 0, 0, 0.06);
+  --card-hover: rgba(0, 0, 0, 0.03);
+  --detail-card-bg: rgba(0, 0, 0, 0.03);
+  --dropdown-bg: rgba(255, 255, 255, 0.92);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+
+  --accent: #2563eb;
+  --accent-glow: rgba(37, 99, 235, 0.15);
+
+  --color-rain: #3b82f6;
+  --color-temp-cool: #3b82f6;
+  --color-temp-mid: #8b5cf6;
+  --color-temp-warm: #ea580c;
+  --temp-bar-bg: rgba(0, 0, 0, 0.06);
+}
+
+/* ---- Base Styles ---- */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background 0.5s ease, color 0.5s ease;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Layout ---- */
+.appContainer {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+  gap: var(--space-md);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.5px;
+}
+
+.logoIcon {
+  font-size: 1.6rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.gridRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+/* ---- Loading ---- */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: var(--space-lg);
+}
+
+.loadingSpinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid var(--card-border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loadingText {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* ---- Error ---- */
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  gap: var(--space-md);
+  text-align: center;
+}
+
+.errorIcon {
+  font-size: 3rem;
+}
+
+.errorMessage {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  max-width: 400px;
+}
+
+.retryButton {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+  box-shadow: 0 4px 16px rgba(96, 165, 250, 0.3);
+}
+
+.retryButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(96, 165, 250, 0.4);
+}
+
+/* ---- Skeleton Loading ---- */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--detail-card-bg) 25%,
+    var(--card-hover) 37%,
+    var(--detail-card-bg) 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: var(--radius-2xl);
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+.skeletonHero {
+  height: 280px;
+}
+
+.skeletonCard {
+  height: 200px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .appContainer {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .gridRow {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .appContainer {
+    padding: var(--space-sm);
+  }
+}
+
+/* ---- Transitions / Animations ---- */
+.fadeIn {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

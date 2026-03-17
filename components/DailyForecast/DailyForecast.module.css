@@ -1,0 +1,124 @@
+.container {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 20px 24px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 24px var(--shadow-color);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-secondary);
+  margin: 0 0 12px;
+}
+
+.dayList {
+  display: flex;
+  flex-direction: column;
+}
+
+.dayRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--card-border);
+  transition: background 0.15s;
+}
+
+.dayRow:last-child {
+  border-bottom: none;
+}
+
+.dayRow:hover {
+  background: var(--card-hover);
+  border-radius: 12px;
+  margin: 0 -8px;
+  padding: 10px 8px;
+}
+
+.dayInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 72px;
+}
+
+.dayName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.dayDate {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+}
+
+.precip {
+  font-size: 0.7rem;
+  color: var(--color-rain);
+  font-weight: 600;
+  min-width: 40px;
+  text-align: center;
+  background: rgba(96, 165, 250, 0.1);
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+
+.precipEmpty {
+  min-width: 40px;
+}
+
+.tempMin {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  min-width: 32px;
+  text-align: right;
+  font-weight: 500;
+}
+
+.tempMax {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 32px;
+  text-align: left;
+}
+
+.tempBar {
+  flex: 1;
+  height: 5px;
+  background: var(--temp-bar-bg);
+  border-radius: 3px;
+  position: relative;
+  min-width: 60px;
+}
+
+.tempBarFill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--color-temp-cool), var(--color-temp-mid), var(--color-temp-warm));
+  transition: all 0.4s ease;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 16px;
+  }
+  .dayInfo {
+    min-width: 56px;
+  }
+  .precip, .precipEmpty {
+    display: none;
+  }
+}
