@@ -111,7 +111,7 @@ export default function SavedLocations({
                   <div className={styles.locationInfo}>
                     <span className={styles.locationName}>{loc.name}</span>
                     <span className={styles.locationCountry}>
-                      {loc.admin && `${loc.admin}, `}{loc.country}
+                      {loc.admin1 && `${loc.admin1}, `}{loc.country}
                     </span>
                   </div>
                   <div className={styles.locationActions}>
